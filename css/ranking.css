@@ -1,0 +1,90 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7fc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+h1 {
+    color: #4CAF50;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.ranking {
+    width: 100%;
+    max-width: 600px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.ranking table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ranking th, .ranking td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.ranking th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.ranking tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.ranking tr:hover {
+    background-color: #f1f1f1;
+}
+
+.message {
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+.success {
+    color: green;
+    font-weight: bold;
+}
+
+button {
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Para garantir que o botão fique no topo */
+.top-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+}

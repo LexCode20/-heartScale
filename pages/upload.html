@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envio de Speed Run</title>
+    <link rel="stylesheet" href="../css/upload.css">
+</head>
+<body>
+
+<!-- Barra de navegação com apenas o botão de Ranking -->
+<nav>
+    <a href="ranking.html">Ranking</a>
+</nav>
+
+<div class="container">
+    <h1>Envio de Speed Run</h1>
+    <form id="uploadForm">
+        <input type="text" id="name" placeholder="Seu nome" required>
+        <input type="file" id="video" accept=".mp4" required>
+        <button type="submit">Enviar</button>
+    </form>
+    <div id="message" class="message"></div>
+</div>
+</body>
+<script src="../js/upload.js"></script>
+</html>
