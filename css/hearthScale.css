@@ -1,41 +1,90 @@
+:root{
+    --AzulEscuroDaMontanha: #2A366C;
+    --CinzaAzuladoDoFundo: #5B667F;
+    --CinzaClaroDasNuvens: #8C9CB6;
+    --PretoDaSilhuetaDaPessoa: #303846;
+    --BrancoDasNuvens: #F5F5F5;
+}
+
+/* Reset de margens e preenchimentos */
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: linear-gradient(to right, #010011, #07006f);
 }
 
+/* Header */
 header {
-    background-color: #333;
-    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 13px 20px;
+}
+
+header .left-links, header .right-links {
+    display: flex;
+    gap: 15px;
+}
+
+header a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 5px 10px;
+}
+
+header a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+.logo-container {
+    margin-right: 20px; /* Espaçamento entre logo e o menu de navegação */
+}
+
+.logo {
+    height: 40px; /* Ajuste o tamanho da logo conforme necessário */
+}
+h2,p,li{
     color: white;
 }
-
+/* Menu de navegação */
 header nav ul {
     list-style-type: none;
     padding: 0;
-    text-align: center;
+    display: flex;
+    margin: 0;
 }
 
 header nav ul li {
-    display: inline;
     margin: 0 15px;
 }
 
 header nav ul li a {
     color: white;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 1rem;
 }
 
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Alinhando o ul de cadastro à direita */
+header nav .cadastro {
+    margin-left: auto; /* Faz o ul de cadastro ir para a direita */
+}
+
+/* Seção de Apresentação com Imagem de Fundo */
 #apresentacao {
     position: relative;
-    height: 100vh; /* A altura da seção ainda é 100vh (tamanho da tela), mas com a imagem ajustada */
-    background-image: url('../img/background.jpg'); /* Substitua pelo caminho da sua imagem */
-    background-size: contain; /* Ajusta a imagem para caber completamente na seção */
-    background-repeat: no-repeat; /* Evita que a imagem se repita */
-    background-position: center; /* Centraliza a imagem */
-    color: white;
+    height: 100vh;
+    background-image: url('../img/background.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -47,16 +96,9 @@ header nav ul li a {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
-
-#apresentacao h1 {
-    font-size: 3em;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-}
-
 section {
     padding: 50px 20px;
     margin: 20px;
-    background-color: white;
     border-radius: 8px;
 }
 
@@ -65,9 +107,7 @@ section {
     margin: 0 auto;
 }
 
-h1, h2 {
-    color: #333;
-}
+h1, h2 {}
 
 img.img-jogo {
     max-width: 100%;
