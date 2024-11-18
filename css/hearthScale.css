@@ -11,7 +11,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    background: linear-gradient(to right, #010011, #07006f);
+    background-color: black;
 }
 
 /* Header */
@@ -20,7 +20,7 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: black;
-    padding: 13px 20px;
+    padding: 14px 20px;
 }
 
 header .left-links, header .right-links {
@@ -80,8 +80,8 @@ header nav .cadastro {
 /* Seção de Apresentação com Imagem de Fundo */
 #apresentacao {
     position: relative;
-    height: 100vh;
-    background-image: url('../img/background.jpg');
+    height: 50vh;
+    background-image: url('../img/cellphone.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -89,6 +89,38 @@ header nav .cadastro {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 100vh;
+}
+main{
+    background-color: white;
+    height: 100vh;
+    background: linear-gradient(to right, #010011, #07006f);
+}
+
+main h1 {
+    position: relative;
+    top: 40vh; /* Move o h1 para baixo em 50% da altura da viewport */
+    margin-left: 30vh;
+    color: white;
+    font-size: 1.2em; /* Ajuste conforme necessário */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+.box{
+    position: relative;
+    top: 40vh;
+    margin-left: 20vh;
+    text-align: center;
+    align-items: center;
+    height: 6vh;
+    width: 60vh;
+    background-color: #F7FF19;
+    border-radius: 10px;
+}
+#Download{
+    color: black;
+    font-size: 1.9rem;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 #apresentacao h1 {
