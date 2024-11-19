@@ -1,17 +1,18 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f7fc;
+    background: linear-gradient(to right, #010011, #07006f);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    
 }
 
 h1 {
-    color: #4CAF50;
+    color: #F7FF19;
     font-size: 24px;
     margin-bottom: 20px;
 }
@@ -22,7 +23,7 @@ h1 {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to right, #010011, #07006f);
 }
 
 .ranking table {
@@ -33,20 +34,20 @@ h1 {
 .ranking th, .ranking td {
     padding: 12px;
     text-align: center;
-    border: 1px solid #ddd;
+    border: 1px solid black;
 }
 
 .ranking th {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #F7FF19;
+    color: black;
 }
 
 .ranking tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #F7FF19;
 }
 
-.ranking tr:hover {
-    background-color: #f1f1f1;
+.ranking tr {
+    background-color: #d8df16;
 }
 
 .message {
@@ -66,7 +67,7 @@ h1 {
 
 button {
     padding: 12px;
-    background-color: #4CAF50;
+    background-color: #F7FF19;
     color: white;
     border: none;
     border-radius: 6px;
@@ -78,13 +79,13 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #dbe218;
 }
 
 /* Para garantir que o botão fique no topo */
 .top-button {
+    background: linear-gradient(to right, #010011, #020017);
     position: fixed;
-    top: 20px;
-    left: 20px;
+    top: -20px;
     z-index: 10;
 }

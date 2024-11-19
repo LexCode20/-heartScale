@@ -14,25 +14,73 @@
             <a href="upload.html">Upload</a>
             <a href="#sobre">Sobre</a>
         </div>
-        <div class="right-  links">
-            <a class="cadastro" href="#cadastro">Iniciar Sessão</a>
+        <div class="right-links">
+            <a class="cadastro" href="#" id="open-login">Iniciar Sessão</a> <!-- Botão para abrir o lightbox de login -->
             <a class="yellow" href="#">Baixar</a>
         </div>
     </header>
 
+    <!-- Lightbox de Login -->
+    <div class="lightbox" id="lightbox-login">
+        <div class="lightbox-content">
+            <span class="close-btn" id="close-login">&times;</span>
+            <h2>Faça o login</h2>
+            <form id="form-login">
+                <div class="form-group">
+                    <label for="username">Nome de Usuário:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+            </form>
+            <div class="form-group buttons-container">
+                <button type="button" class="btn-login">Entrar</button>
+                <button id="open-cadastro" class="btn-cadastro">Criar Conta</button> <!-- Botão para abrir o lightbox de cadastro -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox de Cadastro -->
+    <!-- Lightbox de Cadastro -->
+<div class="lightbox" id="lightbox-cadastro">
+    <div class="lightbox-content">
+        <span class="close-btn" id="close-cadastro">&times;</span>
+        <h2>Cadastre-se</h2>
+        <form id="form-cadastro">
+            <div class="form-group">
+                <label for="nome-usuario">Nome de Usuário:</label>
+                <input type="text" id="nome-usuario" name="nome-usuario" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="senha-cadastro">Senha:</label>
+                <input type="password" id="senha-cadastro" name="senha-cadastro" required>
+            </div>
+        </form>
+        <div class="form-group buttons-container">
+            <button type="button" class="btn-cadastro">Criar Conta</button>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Main Content -->
     <main>
         <h1>Não perca tempo e venha jogar</h1>
         <div class="box">
             <a id="Download" href="">FAÇA SEU TESTE AGORA</a>
         </div>
-    <!-- Seção de Apresentação com Imagem de Fundo -->
-    <section id="apresentacao" class="bg-img">
-        <div class="container">
-            
-        </div>
-    </section>
+        <!-- Seção de Apresentação com Imagem de Fundo -->
+        <section id="apresentacao" class="bg-img">
+            <div class="container"></div>
+        </section>
     </main>
-    
+
     <!-- Como Jogar -->
     <section id="como-jogar">
         <div class="container">
@@ -50,11 +98,7 @@
     <section id="historia">
         <div class="container">
             <h2>A História de LostTear</h2>
-            <p>A história de The Lost Tear se passa em um feudo medieval devastado por uma praga misteriosa que está destruindo a população e a vegetação local. Em busca de uma solução, o rei ordena que seus soldados subam a montanha “Rocha do Eco Perdido” para encontrar um artefato lendário chamado Lágrima Perdida, que possui a reputação de curar qualquer enfermidade.
-
-                Após muitas tentativas fracassadas, em que nenhum soldado retorna, o rei começa a enviar servos escolhidos aleatoriamente para a missão. Aiden, o protagonista, é um desses servos. Ele aceita a tarefa com o objetivo de salvar sua vila e seu povo, que foram gravemente afetados pela praga. Sua determinação também é alimentada pelo fato de seu pai, Corvus, ter desaparecido anos antes enquanto buscava o mesmo artefato.
-                
-                A jornada de Aiden pela montanha é repleta de desafios. Ele enfrenta puzzles e guardiões elementais, Golem, Terrak e Hydros, cada um testando sua força física, inteligência e determinação. Apesar das dificuldades, Aiden segue em frente, movido pela esperança de trazer a cura para seu povo e honrar o sacrifício de seu pai.</p>
+            <p>A história de The Lost Tear se passa em um feudo medieval devastado por uma praga misteriosa...</p>
         </div>
     </section>
 
@@ -70,5 +114,8 @@
     <footer>
         <p>&copy; 2024 HeartScale. Todos os direitos reservados.</p>
     </footer>
+
+    <!-- Scripts -->
+    <script src="../js/lightbox.js"></script>
 </body>
 </html>

@@ -1,21 +1,22 @@
 body {
-    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f7fc;
+    background: linear-gradient(to right, #010011, #07006f);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 /* Barra de navegação */
 nav {
-    background-color: #4CAF50;
-    padding: 10px;
+    padding: 20px;
     text-align: center;
+    background: linear-gradient(to right, #010011, #020017);
 }
 
 nav a {
     color: white;
     font-size: 18px;
     text-decoration: none;
+    margin: 0px 40px 0px 40px;
 }
 
 nav a:hover {
@@ -23,18 +24,18 @@ nav a:hover {
 }
 
 .container {
-    background-color: #ffffff;
+    background: linear-gradient(to right, #010011, #07006f);
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 500px;
-    margin: 20px auto;
+    width: 50%;
+    max-width: 400px;
+    margin: 30vh auto;
 }
 
 h1 {
     text-align: center;
-    color: #4CAF50;
+    color: #F7FF19;
     font-size: 24px;
     margin-bottom: 20px;
 }
@@ -50,28 +51,29 @@ input[type="text"], input[type="file"] {
     border-radius: 6px;
     border: 1px solid #ddd;
     font-size: 16px;
-    width: 100%;
+    width: 95%;
     background-color: #f9f9f9;
 }
 
 input[type="text"]:focus, input[type="file"]:focus {
-    border-color: #4CAF50;
+    border-color: #F7FF19;
     outline: none;
 }
 
 button {
     padding: 12px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #F7FF19;
+    color: black;
     border: none;
     border-radius: 6px;
-    font-size: 16px;
+    font-weight: 700;
+    font-size: 24px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #F7FF19;
 }
 
 .message {
