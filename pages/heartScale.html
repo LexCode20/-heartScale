@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HeartScale - Apresentação</title>
     <link rel="stylesheet" href="../css/hearthScale.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <!-- Header -->
@@ -86,6 +87,17 @@
         <div class="container">
             <h2>Como Jogar</h2>
             <p>Para jogar, basta seguir as instruções no jogo e correr contra o tempo. Cada segundo conta! Aqui estão algumas dicas:</p>
+            <div id="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-inner">
+                        <img src="../img/tela-menu.png" alt="Tela do jogo">
+                        <img src="../img/tela-tutorial.png" alt="Tela de desafio">
+                        <img src="../img/tela-boss.png" alt="Tela de vitória">
+                    </div>
+                    <button class="carousel-btn prev">&lt;</button>
+                    <button class="carousel-btn next">&gt;</button>
+                </div>
+            </div>
             <ul>
                 <li>Use os controles para se mover rapidamente entre os obstáculos.</li>
                 <li>Fique atento aos temporizadores e aproveite as vantagens do ambiente.</li>
@@ -97,10 +109,15 @@
     <!-- História do Jogo -->
     <section id="historia">
         <div class="container">
-            <h2>A História de LostTear</h2>
-            <p>A história de The Lost Tear se passa em um feudo medieval devastado por uma praga misteriosa...</p>
+            <div class="pergaminho">
+                <h2>A História de LostTear</h2>
+                <p>A história de The Lost Tear se passa em um feudo medieval devastado por uma praga misteriosa que está destruindo a população e a vegetação local. Em busca de uma solução, o rei ordena que seus soldados subam a montanha “Rocha do Eco Perdido” para encontrar um artefato lendário chamado Lágrima Perdida, que possui a reputação de curar qualquer enfermidade.</p>
+                <p>Após muitas tentativas fracassadas, em que nenhum soldado retorna, o rei começa a enviar servos escolhidos aleatoriamente para a missão. Aiden, o protagonista, é um desses servos. Ele aceita a tarefa com o objetivo de salvar sua vila e seu povo, que foram gravemente afetados pela praga. Sua determinação também é alimentada pelo fato de seu pai, Corvus, ter desaparecido anos antes enquanto buscava o mesmo artefato.</p>
+                <p>A jornada de Aiden pela montanha é repleta de desafios. Ele enfrenta puzzles e guardiões elementais, Golem, Terrak e Hydros, cada um testando sua força física, inteligência e determinação. Apesar das dificuldades, Aiden segue em frente, movido pela esperança de trazer a cura para seu povo e honrar o sacrifício de seu pai.</p>
+            </div>
         </div>
     </section>
+    
 
     <!-- Chamada para Ação -->
     <section id="cta">
@@ -112,10 +129,24 @@
 
     <!-- Footer -->
     <footer>
+        <div class="footer-content">
+            <img src="../img/logo.png" alt="HeartScale Logo" class="logo">
+            <div class="social-icons">
+                <a href="https://facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+                <a href="https://instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+                <a href="https://x.com" target="_blank" class="social-icon"><i class="fab fa-x"></i></a>
+            </div>
+        </div>
+        <hr>
+        <div class="warning-message">
+            <img src="../img/classificacao-10-anos.png" alt="" class="year">
+            <p>Aviso: Este conteúdo contém violência. Proibido para menores de 10 anos.</p>
+        </div>
         <p>&copy; 2024 HeartScale. Todos os direitos reservados.</p>
-    </footer>
-
+    </footer>  
     <!-- Scripts -->
     <script src="../js/lightbox.js"></script>
+    <script src="../js/carousel.js"></script>
 </body>
 </html>

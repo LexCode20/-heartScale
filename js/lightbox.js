@@ -1,40 +1,29 @@
-// Elementos do Lightbox
-const lightboxLogin = document.getElementById('lightbox-login');
-const lightboxCadastro = document.getElementById('lightbox-cadastro');
-const closeLoginBtn = document.getElementById('close-login');
-const closeCadastroBtn = document.getElementById('close-cadastro');
+// Selecionando os elementos do lightbox
 const openLoginBtn = document.getElementById('open-login');
+const lightboxLogin = document.getElementById('lightbox-login');
+const closeLoginBtn = document.getElementById('close-login');
+
 const openCadastroBtn = document.getElementById('open-cadastro');
+const lightboxCadastro = document.getElementById('lightbox-cadastro');
+const closeCadastroBtn = document.getElementById('close-cadastro');
 
-// Abrir o Lightbox de Login
-openLoginBtn.addEventListener('click', (e) => {
-    e.preventDefault(); // Evita comportamento padrão do link
-    lightboxLogin.classList.add('show'); // Mostra o lightbox de login
+// Função para abrir o lightbox de login
+openLoginBtn.addEventListener('click', () => {
+    lightboxLogin.classList.add('show');
 });
 
-// Abrir o Lightbox de Cadastro
-openCadastroBtn.addEventListener('click', (e) => {
-    e.preventDefault(); // Evita comportamento padrão do link
-    lightboxCadastro.classList.add('show'); // Mostra o lightbox de cadastro
-    lightboxLogin.classList.remove('show'); // Esconde o lightbox de login
-});
-
-// Fechar o Lightbox de Login
+// Função para fechar o lightbox de login
 closeLoginBtn.addEventListener('click', () => {
     lightboxLogin.classList.remove('show');
 });
 
-// Fechar o Lightbox de Cadastro
-closeCadastroBtn.addEventListener('click', () => {
-    lightboxCadastro.classList.remove('show');
+// Função para abrir o lightbox de cadastro
+openCadastroBtn.addEventListener('click', () => {
+    lightboxCadastro.classList.add('show');
+    lightboxLogin.classList.remove('show'); // Fecha o lightbox de login ao abrir o de cadastro
 });
 
-// Fechar os lightboxes ao clicar fora do conteúdo
-window.addEventListener('click', (e) => {
-    if (e.target === lightboxLogin) {
-        lightboxLogin.classList.remove('show');
-    }
-    if (e.target === lightboxCadastro) {
-        lightboxCadastro.classList.remove('show');
-    }
+// Função para fechar o lightbox de cadastro
+closeCadastroBtn.addEventListener('click', () => {
+    lightboxCadastro.classList.remove('show');
 });
