@@ -13,13 +13,23 @@
         <div class="left-links">
             <a href="ranking.html">Ranking</a>
             <a href="upload.html">Upload</a>
-            <a href="#sobre">Sobre</a>
+            <a href="sobre">Sobre</a>
         </div>
         <div class="right-links">
             <a class="cadastro" href="#" id="open-login">Iniciar Sessão</a> <!-- Botão para abrir o lightbox de login -->
             <a class="yellow" href="#">Baixar</a>
         </div>
     </header>
+    <!-- Lightbox Sobre -->
+    <div class="lightbox" id="lightbox-sobre">
+        <div class="lightbox-content">
+            <span class="close-btn" id="close-sobre">&times;</span>
+            <h2>Sobre o LostTear</h2>
+            <p>HeartScale é um jogo desafiador que combina estratégia, habilidade e velocidade. Prepare-se para enfrentar puzzles e inimigos enquanto compete pelo topo do ranking com outros jogadores!</p>
+            <p>Nosso objetivo é criar uma experiência emocionante e inesquecível para jogadores de todas as idades!</p>
+        </div>
+    </div>
+
 
     <!-- Lightbox de Login -->
     <div class="lightbox" id="lightbox-login">
@@ -85,8 +95,11 @@
     <!-- Como Jogar -->
     <section id="como-jogar">
         <div class="container">
-            <h2>Como Jogar</h2>
-            <p>Para jogar, basta seguir as instruções no jogo e correr contra o tempo. Cada segundo conta! Aqui estão algumas dicas:</p>
+            <h2>Como jogar</h2>
+            <p>Para jogar, basta seguir as instruções que sao fornecidas no começo do jogo, veja as dicas durante a gameplay <br>
+                Lembrando que cada segundo conta, então se você quiser ficar em primeiro no ranking seja rápido!
+            </p>
+            
             <div id="carousel-container">
                 <div class="carousel">
                     <div class="carousel-inner">
@@ -98,11 +111,6 @@
                     <button class="carousel-btn next">&gt;</button>
                 </div>
             </div>
-            <ul>
-                <li>Use os controles para se mover rapidamente entre os obstáculos.</li>
-                <li>Fique atento aos temporizadores e aproveite as vantagens do ambiente.</li>
-                <li>Quanto mais rápido você for, maior será sua pontuação no ranking!</li>
-            </ul>
         </div>
     </section>
 
@@ -140,10 +148,10 @@
         </div>
         <hr>
         <div class="warning-message">
-            <img src="../img/classificacao-10-anos.png" alt="" class="year">
+            <img src="../img/classificacao-10-anos.png" alt="">
             <p>Aviso: Este conteúdo contém violência. Proibido para menores de 10 anos.</p>
         </div>
-        <p>&copy; 2024 HeartScale. Todos os direitos reservados.</p>
+        <p>&copy; Made by: 4lexcode@gmail.com</p>
     </footer>  
     <!-- Scripts -->
     <script src="../js/lightbox.js"></script>

@@ -42,6 +42,44 @@ header a:hover {
     transition: .3s;
     color: #777;
 }
+/* Estilo específico para o lightbox "Sobre" */
+#lightbox-sobre .lightbox-content {
+    background-color: #2A366C; /* Azul escuro da montanha */
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.6);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#lightbox-sobre h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--BrancoDasNuvens); /* Branco das nuvens */
+}
+
+#lightbox-sobre p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--CinzaClaroDasNuvens); /* Cinza claro das nuvens */
+    margin-bottom: 15px;
+}
+
+#lightbox-sobre .close-btn {
+    font-size: 25px;
+    color: var(--BrancoDasNuvens); /* Branco das nuvens */
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+#lightbox-sobre .close-btn:hover {
+    color: red;
+}
+
 .yellow{
     background-color: #F7FF19;
     color: black;
@@ -127,9 +165,25 @@ section {
     border-radius: 8px;
 }
 
-.container {
+#como-jogar .container {
     max-width: 1200px;
     margin: 0 auto;
+    background-color: rgb(23, 23, 23);
+    border-radius: 10px;
+}
+#como-jogar .container h2{
+    text-align: center;
+    margin: 10px 0px 10px 0px;
+    font-weight: 900;
+    font-size: 2.9rem;
+}
+#como-jogar .carousel-inner{
+    margin-bottom: 20px;
+}
+.container p{
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 900;
 }
 img.img-jogo {
     max-width: 100%;
@@ -348,9 +402,10 @@ footer {
 }
 
 .carousel-btn:hover {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(237, 207, 207, 0.7);
     color: black;
 }
+
 /* Efeito Pergaminho */
 #historia .pergaminho {
     background-color: #c6c2a6; /* Cor bege clara */
@@ -362,7 +417,7 @@ footer {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
-    background-image: url('path/to/pergaminho-textura.png'); /* Adiciona uma textura de pergaminho */
+    background-image: url('../img/background-pergaminho.avif'); /* Adiciona uma textura de pergaminho */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -452,15 +507,15 @@ footer p {
     width: 40vh;
     height: 10vh;
     padding: 10px;
-    font-weight: bold;
-    font-size: 16px;
+    font-size: 10px;
     text-align: left;
     margin: 20px 0;
     border-radius: 5px;
 }
 
-.warning-message p {   
-    color: black;
+.warning-message p {
+    text-align: right;
+    color: white;
 }
 .warning-message img{
     height: 10vh;
