@@ -10,22 +10,31 @@
 <body>
     <!-- Header -->
     <header>
-        <div class="left-links">
-            <a href="ranking.html">Ranking</a>
-            <a href="upload.html">Upload</a>
-            <a href="sobre">Sobre</a>
+        <div class="logo-container">
+            <img src="../img/logo.png" alt="HeartScale Logo" class="logo">
         </div>
+        <div class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i> <!-- Ícone de hambúrguer -->
+        </div>
+        <nav id="nav-links">
+            <ul>
+                <li><a href="ranking.html">Ranking</a></li>
+                <li><a href="upload.html">Upload</a></li>
+                <li><a href="sobre">Sobre</a></li>
+            </ul>
+        </nav>
         <div class="right-links">
-            <a class="cadastro" href="#" id="open-login">Iniciar Sessão</a> <!-- Botão para abrir o lightbox de login -->
+            <a class="cadastro" href="#" id="open-login">Iniciar Sessão</a>
             <a class="yellow" href="#">Baixar</a>
         </div>
     </header>
+    
     <!-- Lightbox Sobre -->
     <div class="lightbox" id="lightbox-sobre">
         <div class="lightbox-content">
             <span class="close-btn" id="close-sobre">&times;</span>
             <h2>Sobre o LostTear</h2>
-            <p>HeartScale é um jogo desafiador que combina estratégia, habilidade e velocidade. Prepare-se para enfrentar puzzles e inimigos enquanto compete pelo topo do ranking com outros jogadores!</p>
+            <p>Temos como objetivo </p>
             <p>Nosso objetivo é criar uma experiência emocionante e inesquecível para jogadores de todas as idades!</p>
         </div>
     </div>
@@ -97,7 +106,7 @@
         <div class="container">
             <h2>Como jogar</h2>
             <p>Para jogar, basta seguir as instruções que sao fornecidas no começo do jogo, veja as dicas durante a gameplay <br>
-                Lembrando que cada segundo conta, então se você quiser ficar em primeiro no ranking seja rápido!
+                Lembrando que cada segundo conta, então se você quiser ficar em primeiro no ranking,     seja rápido!
             </p>
             
             <div id="carousel-container">
@@ -156,5 +165,6 @@
     <!-- Scripts -->
     <script src="../js/lightbox.js"></script>
     <script src="../js/carousel.js"></script>
+    <script src="../js/burguer.js"></script>
 </body>
 </html>

@@ -18,19 +18,83 @@ body {
 }
 
 /* Header */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 20px;
-    background: linear-gradient(to right, #010011, #020017);
+/* Adiciona um ícone de hambúrguer */
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
 }
 
-header .left-links, header .right-links {
+/* Estilo do nav-links - padrão em dispositivos maiores */
+#nav-links ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+}
+
+/* Estilo do nav-links em telas pequenas */
+#nav-links {
+    display: flex;
+}
+
+#nav-links ul {
     display: flex;
     gap: 15px;
 }
 
+#nav-links ul li {
+    padding: 5px 10px;
+}
+
+/* Quando a tela for menor que 768px, escondemos o menu de navegação e mostramos o menu hambúrguer */
+@media (max-width: 768px) {
+    #nav-links {
+        display: none;
+        width: 100%;
+        text-align: center;
+        background-color: #020017;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 10px 0;
+    }
+
+    #nav-links ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Exibe o menu quando a classe "show" for adicionada */
+    #nav-links.show {
+        display: flex;
+    }
+}
+
+/* Estilo do Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    background: linear-gradient(to right, #010011, #020017);
+}
+
+/* Estilo do Logo */
+.logo-container {
+    margin-right: 20px;
+}
+
+.logo {
+    height: 40px;
+}
+
+/* Links do menu */
 header a {
     text-decoration: none;
     color: white;
@@ -42,6 +106,7 @@ header a:hover {
     transition: .3s;
     color: #777;
 }
+
 /* Estilo específico para o lightbox "Sobre" */
 #lightbox-sobre .lightbox-content {
     background-color: #2A366C; /* Azul escuro da montanha */
@@ -90,10 +155,6 @@ header a:hover {
 .logo-container {
     margin-right: 20px; /* Espaçamento entre logo e o menu de navegação */
 }
-
-.logo {
-    height: 40px; /* Ajuste o tamanho da logo conforme necessário */
-}
 h2,p,li{
     color: white;
 }
@@ -118,10 +179,35 @@ h2,p,li{
     align-items: center;
     margin-left: 100vh;
 }
-main{
-    background-color: white;
-    height:90vh;
-    background: linear-gradient(to right, #010011, #07006f);
+/*main{
+    background-color:linear-gradient(to right, #010011, #07006f);;
+    height:100vh;
+    background-image: url(../img/background-main.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: blur(10px);
+}*/
+main {
+    height: 100%;
+    color: white;
+    text-align: center;
+    padding: 40px;
+}
+
+/* Pseudo-element para a imagem de fundo com blur */
+main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../img/background-main.png');
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px);
+    z-index: -1; /* Coloca a imagem atrás de todo o conteúdo */
 }
 
 main h1 {
@@ -508,15 +594,20 @@ footer p {
     height: 10vh;
     padding: 10px;
     font-size: 10px;
-    text-align: left;
+    display: flex;
+    align-items: center;
+    text-align: end;
     margin: 20px 0;
     border-radius: 5px;
 }
 
 .warning-message p {
-    text-align: right;
-    color: white;
+    color: black; /* Ajusta para o texto ser visível no fundo branco */
+    margin: 0;
+    margin-left: 3px;
+    font-weight: 500;
 }
 .warning-message img{
-    height: 10vh;
+    height: 100%;
+    max-height: 100%;
 }
