@@ -296,6 +296,7 @@ main h1, #como-jogar .container h2, #cta h2, #historia h2, #historia p {
     color: var(--CinzaClaroDasNuvens);
     font-size: 1rem;
     line-height: 1.8;
+    font-weight: 900;
 }
 
 /* Botão na seção de ação */

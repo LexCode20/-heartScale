@@ -16,7 +16,7 @@ body {
 /* Barra de navegação */
 nav {
     padding: 15px;
-    background-color: #7CA9D6; /* Cor suave pastel */
+    background-color: #6f7d8b; /* Cor suave pastel */
     text-align: center;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -31,13 +31,14 @@ nav a {
 }
 
 nav a:hover {
-    color: #F7FF19; /* Cor de destaque ao passar o mouse */
+    color: #c9c9c9; /* Cor de destaque ao passar o mouse */
+    transition: .3s;
 }
 
 /* Título */
 h1 {
     font-size: 28px;
-    color: #4C6A92; /* Azul suave */
+    color: #2d3b4c;; /* Azul suave */
     margin-bottom: 30px;
     font-weight: 700;
     text-align: center;
@@ -116,8 +117,8 @@ input[type="file"]:focus {
 
 /* Botões principais */
 button {
-    background-color: #A1C4FD; /* Cor pastel para o botão */
-    color: #333;
+    background-color: #4b6e81; /* Cor pastel para o botão */
+    color: #fff;
     border: none;
     padding: 15px;
     border-radius: 8px;
@@ -128,7 +129,7 @@ button {
 }
 
 button:hover {
-    background-color: #7CA9D6; /* Cor mais suave ao passar o mouse */
+    background-color: #3e4a59; /* Cor mais suave ao passar o mouse */
 }
 
 /* Mensagens de erro ou sucesso */
