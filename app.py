@@ -6,19 +6,22 @@ from sqlalchemy.orm import sessionmaker
 import os
 import uuid
 from datetime import datetime
-from flask_cors import CORS  # Importando o CORS
+from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)  # Habilita o CORS para permitir requisições de outros domínios (frontend)
+CORS(app)
 
 # Configuração do limite de tamanho para upload (50 MB)
 app.config['MAX_CONTENT_LENGTH'] = 50 * 1024 * 1024  # 50 MB
 
 # Configuração do Banco de Dados
-engine = create_engine('sqlite:///ranking.db')  # Banco de dados SQLite
+engine = create_engine('sqlite:///ranking.db')
 Base = declarative_base()
 Session = sessionmaker(bind=engine)
 session = Session()
+
+# Token do administrador
+ADMIN_TOKEN = "adm123"
 
 # Modelo para o Banco de Dados
 class Player(Base):
@@ -27,11 +30,11 @@ class Player(Base):
     name = Column(String)
     time = Column(Float)
     video_path = Column(String)
-    timestamp = Column(String, default=datetime.utcnow)  # Armazena a data e hora do envio
+    timestamp = Column(String, default=datetime.utcnow)
 
 Base.metadata.create_all(engine)
 
-# Garantir que a pasta de uploads existe
+# Pasta de uploads
 UPLOAD_FOLDER = 'uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
@@ -41,20 +44,16 @@ def upload():
     try:
         name = request.form['name']
         file = request.files['file']
-        
         if not file or not file.filename.endswith('.mp4'):
             return jsonify({'error': 'Arquivo inválido! Apenas MP4 é permitido.'}), 400
 
-        # Gerar um nome único para o arquivo
         unique_filename = f"{uuid.uuid4().hex}_{file.filename}"
         video_path = os.path.join(UPLOAD_FOLDER, unique_filename)
         file.save(video_path)
 
-        # Calcula a duração do vídeo
         clip = VideoFileClip(video_path)
-        duration = clip.duration  # Em segundos
+        duration = clip.duration
 
-        # Salva no banco
         player = Player(name=name, time=duration, video_path=video_path)
         session.add(player)
         session.commit()
@@ -64,7 +63,7 @@ def upload():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-# Função para formatar o tempo em hh:mm:ss
+# Função para formatar o tempo
 def format_time(seconds):
     minutes, seconds = divmod(seconds, 60)
     hours, minutes = divmod(minutes, 60)
@@ -74,11 +73,10 @@ def format_time(seconds):
 @app.route('/ranking', methods=['GET'])
 def ranking():
     try:
-        # Ordena pelo tempo e desempata pela data de envio (timestamp)
-        players = session.query(Player).order_by(asc(Player.time), asc(Player.timestamp)).limit(10).all()
+        players = session.query(Player).order_by(asc(Player.time), asc(Player.timestamp)).limit(100).all()
         return jsonify([{
             'name': p.name,
-            'time': format_time(p.time),  # Exibir tempo formatado
+            'time': format_time(p.time),
             'video': p.video_path
         } for p in players])
     except Exception as e:
@@ -88,18 +86,24 @@ def ranking():
 @app.route('/clear-ranking', methods=['DELETE'])
 def clear_ranking():
     try:
-        # Apaga todos os registros da tabela `players`
+        token = request.headers.get('Authorization')
+        if token != ADMIN_TOKEN:
+            return jsonify({'error': 'Acesso negado: Token inválido'}), 403
+
         session.query(Player).delete()
         session.commit()
         return jsonify({'message': 'Ranking limpo com sucesso!'}), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-# Endpoint para Limpar todos os Vídeos
+# Endpoint para Limpar Vídeos
 @app.route('/clear-uploads', methods=['DELETE'])
 def clear_uploads():
     try:
-        # Deleta todos os vídeos na pasta 'uploads'
+        token = request.headers.get('Authorization')
+        if token != ADMIN_TOKEN:
+            return jsonify({'error': 'Acesso negado: Token inválido'}), 403
+
         for filename in os.listdir(UPLOAD_FOLDER):
             file_path = os.path.join(UPLOAD_FOLDER, filename)
             if os.path.isfile(file_path):

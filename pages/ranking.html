@@ -24,13 +24,97 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Ranking será inserido aqui -->
+            <!-- Ranking será carregado aqui -->
         </tbody>
     </table>
 </div>
 
+<!-- Botões e autenticação para administrador -->
+<div id="admin-section">
+    <h2>Área do Administrador</h2>
+    <input type="password" id="admin-token" placeholder="Token de Administrador">
+    <button id="btn-clear-ranking">Limpar Ranking</button>
+    <button id="btn-clear-videos">Limpar Vídeos</button>
+</div>
+
 <div id="message" class="message"></div>
 
+<script>
+    // Função para carregar o ranking
+    function loadRanking() {
+        fetch("http://127.0.0.1:5000/ranking")
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.querySelector("#rankingTable tbody");
+                tableBody.innerHTML = "";
+                data.forEach((player, index) => {
+                    const row = `
+                        <tr>
+                            <td>${index + 1}</td>
+                            <td>${player.name}</td>
+                            <td>${player.time}</td>
+                            <td><a href="${player.video}" target="_blank">Ver Vídeo</a></td>
+                        </tr>
+                    `;
+                    tableBody.innerHTML += row;
+                });
+            })
+            .catch(error => {
+                console.error("Erro ao carregar o ranking:", error);
+            });
+    }
+
+    // Função para limpar o ranking
+    document.getElementById("btn-clear-ranking").addEventListener("click", function () {
+        const token = document.getElementById("admin-token").value;
+        if (!token) {
+            alert("Insira o token de administrador.");
+            return;
+        }
+
+        fetch("http://127.0.0.1:5000/clear-ranking", {
+            method: "DELETE",
+            headers: {
+                "Authorization": token
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert("Erro: " + data.error);
+                } else {
+                    alert(data.message);
+                    loadRanking(); // Recarrega o ranking após limpar
+                }
+            });
+    });
+
+    // Função para limpar os vídeos
+    document.getElementById("btn-clear-videos").addEventListener("click", function () {
+        const token = document.getElementById("admin-token").value;
+        if (!token) {
+            alert("Insira o token de administrador.");
+            return;
+        }
+
+        fetch("http://127.0.0.1:5000/clear-uploads", {
+            method: "DELETE",
+            headers: {
+                "Authorization": token
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert("Erro: " + data.error);
+                } else {
+                    alert(data.message);
+                }
+            });
+    });
+
+    // Carrega o ranking ao carregar a página
+    loadRanking();
+</script>
 </body>
-<script src="../js/ranking.js"></script>
 </html>

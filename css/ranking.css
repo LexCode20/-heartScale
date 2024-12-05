@@ -1,91 +1,164 @@
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+/* Resetando estilos padrão */
+* {
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, #010011, #07006f);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    
+    box-sizing: border-box;
 }
 
-h1 {
-    color: #F7FF19;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.ranking {
-    width: 100%;
-    max-width: 600px;
-    background-color: #ffffff;
+/* Corpo da página */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f1f5f9; /* Cor de fundo clara e suave */
+    color: #333; /* Texto escuro */
+    line-height: 1.6;
     padding: 20px;
-    border-radius: 8px;
-    background: linear-gradient(to right, #010011, #07006f);
+    background-image: url(../img/HeartScale_logo.png);
+    background-repeat: no-repeat;background-size: 70vh;
+    background-position-x: 100%;
+    background-position-y: -5%;
 }
 
-.ranking table {
+/* Cabeçalho */
+h1 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2d3b4c; /* Cor suave para o título */
+}
+
+/* Tabela de ranking */
+.ranking {
+    margin-top: 30px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(255, 255, 255, 0.7); /* Fundo branco com 70% de opacidade */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para destaque */
+    overflow: hidden;
+}
+
+#rankingTable {
     width: 100%;
     border-collapse: collapse;
 }
 
-.ranking th, .ranking td {
-    padding: 12px;
+#rankingTable th, #rankingTable td {
+    padding: 15px;
     text-align: center;
-    border: 1px solid black;
+    border-bottom: 1px solid #e1e1e1; /* Linha separadora entre as linhas */
 }
 
-.ranking th {
-    background-color: #F7FF19;
-    color: black;
-}
-
-.ranking tr:nth-child(even) {
-    background-color: #F7FF19;
-}
-
-.ranking tr {
-    background-color: #d8df16;
-}
-
-.message {
-    font-size: 18px;
-    margin-top: 20px;
-}
-
-.error {
-    color: red;
+#rankingTable th {
+    background-color: rgba(250, 251, 252, 0.192); /* Cabeçalho com fundo transparente */
+    color: #4a5d72; /* Cor mais escura para o cabeçalho */
     font-weight: bold;
 }
 
-.success {
-    color: green;
-    font-weight: bold;
+#rankingTable td {
+    background-color: rgba(250, 251, 252, 0.192); /*Linhas alternadas de fundo mais claro */
 }
 
+/* Botões principais */
 button {
-    padding: 12px;
-    background-color: #F7FF19;
-    color: white;
+    background-color: #6f7d8b; /* Cor de fundo suave */
+    color: #fff;
     border: none;
-    border-radius: 6px;
-    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    width: 100%;
-    margin-top: 20px;
+    font-size: 16px;
 }
 
 button:hover {
-    background-color: #dbe218;
+    background-color: #3e4a59; /* Escurecendo o botão ao passar o mouse */
 }
 
-/* Para garantir que o botão fique no topo */
-.top-button {
-    background: linear-gradient(to right, #010011, #020017);
-    position: fixed;
-    top: -20px;
-    z-index: 10;
+/* Estilo aprimorado para a área do administrador */
+#admin-section {
+    margin-top: 40px;
+    background-color: rgba(250, 251, 252, 0.87);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Sombra mais destacada */
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+}
+
+#admin-section:hover {
+    transform: scale(1.02); /* Efeito de zoom ao passar o mouse */
+}
+
+#admin-section h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 28px;
+    color: #4a5d72; /* Cor mais suave para o subtítulo */
+}
+
+#admin-section input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 25px;
+    border: 1px solid #d1dbe4;
+    border-radius: 8px;
+    background-color: #fafbfc;
+    font-size: 16px;
+    color: #333;
+    transition: border-color 0.3s ease;
+    text-align: center;
+}
+
+#admin-section input:focus {
+    outline: none;
+    border-color: #6f7d8b; /* Cor do foco com mais contraste */
+}
+
+#admin-section button {
+    width: 48%;
+    margin-right: 4%;
+    background-color: #4b6e81;
+    padding: 14px;
+    font-size: 18px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+#admin-section button:last-child {
+    margin-right: 0;
+    background-color: #7a9b8b;
+}
+
+#admin-section button:hover {
+    background-color: #3e4a59; /* Efeito de cor ao passar o mouse */
+}
+
+#admin-section .message {
+    margin-top: 20px;
+    text-align: center;
+    padding: 12px;
+    background-color: #d1e3e6;
+    color: #2d3b4c;
+    border-radius: 8px;
+    display: none; /* Esconde a mensagem inicialmente */
+    font-weight: bold;
+}
+
+/* Estilo para a mensagem de erro */
+#admin-section .message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Estilo para a mensagem de sucesso */
+#admin-section .message.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+#admin-section #btn-clear-ranking{
+    margin-left: 2.5vh;
 }

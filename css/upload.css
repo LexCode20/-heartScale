@@ -1,104 +1,246 @@
-body {
+/* Resetando margens e padding */
+* {
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, #010011, #07006f);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
 }
 
 /* Barra de navegação */
 nav {
-    padding: 20px;
+    padding: 15px;
+    background-color: #7CA9D6; /* Cor suave pastel */
     text-align: center;
-    background: linear-gradient(to right, #010011, #020017);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 nav a {
     color: white;
     font-size: 18px;
     text-decoration: none;
-    margin: 0px 40px 0px 40px;
+    margin: 0 20px;
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
-    text-decoration: underline;
+    color: #F7FF19; /* Cor de destaque ao passar o mouse */
 }
 
-.container {
-    background: linear-gradient(to right, #010011, #07006f);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 50%;
-    max-width: 400px;
-    margin: 30vh auto;
-}
-
+/* Título */
 h1 {
+    font-size: 28px;
+    color: #4C6A92; /* Azul suave */
+    margin-bottom: 30px;
+    font-weight: 700;
     text-align: center;
-    color: #F7FF19;
-    font-size: 24px;
-    margin-bottom: 20px;
 }
 
+/* Tabela de ranking */
+.ranking {
+    margin-top: 30px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff; /* Fundo branco para a tabela */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para destaque */
+    overflow: hidden;
+}
+
+#rankingTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#rankingTable th, #rankingTable td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #e1e1e1; /* Linha separadora entre as linhas */
+}
+
+#rankingTable th {
+    background-color: #f0f4f8; /* Cabeçalho em tom pastel */
+    color: #4a5d72; /* Cor mais escura para o cabeçalho */
+    font-weight: bold;
+}
+
+#rankingTable td {
+    background-color: #fafbfc; /* Linhas alternadas de fundo mais claro */
+}
+
+/* Container principal (para ranking e upload) */
+.container {
+    background-color: #FFFFFF;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra suave para destacar */
+    width: 100%;
+    max-width: 500px;
+    margin: 10vh auto;
+    text-align: center;
+}
+
+/* Formulário de upload */
 form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
-input[type="text"], input[type="file"] {
-    padding: 12px;
-    border-radius: 6px;
-    border: 1px solid #ddd;
+/* Estilo dos campos de input */
+input[type="text"],
+input[type="file"] {
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #D1E1F0; /* Borda suave pastel */
     font-size: 16px;
-    width: 95%;
-    background-color: #f9f9f9;
+    width: 100%;
+    background-color: #F9F9F9;
+    transition: border-color 0.3s ease;
 }
 
-input[type="text"]:focus, input[type="file"]:focus {
-    border-color: #F7FF19;
+/* Estilo ao focar nos campos de input */
+input[type="text"]:focus,
+input[type="file"]:focus {
+    border-color: #4C6A92; /* Borda azul suave ao focar */
     outline: none;
 }
 
+/* Botões principais */
 button {
-    padding: 12px;
-    background-color: #F7FF19;
-    color: black;
+    background-color: #A1C4FD; /* Cor pastel para o botão */
+    color: #333;
     border: none;
-    border-radius: 6px;
+    padding: 15px;
+    border-radius: 8px;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 20px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #F7FF19;
+    background-color: #7CA9D6; /* Cor mais suave ao passar o mouse */
 }
 
+/* Mensagens de erro ou sucesso */
 .message {
-    text-align: center;
-    font-size: 16px;
     margin-top: 20px;
-}
-
-.error {
-    color: red;
+    font-size: 16px;
     font-weight: bold;
 }
 
-.success {
-    color: green;
+.message.error {
+    color: #E74C3C; /* Vermelho suave para erro */
+}
+
+.message.success {
+    color: #2ECC71; /* Verde suave para sucesso */
+}
+
+/* Estilo aprimorado para a área do administrador */
+#admin-section {
+    margin-top: 40px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Sombra mais destacada */
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+#admin-section:hover {
+    transform: scale(1.02); /* Efeito de zoom ao passar o mouse */
+}
+
+#admin-section h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 28px;
+    color: #4a5d72; /* Cor mais suave para o subtítulo */
+}
+
+#admin-section input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 25px;
+    border: 1px solid #d1dbe4;
+    border-radius: 8px;
+    background-color: #fafbfc;
+    font-size: 16px;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+#admin-section input:focus {
+    outline: none;
+    border-color: #6f7d8b; /* Cor do foco com mais contraste */
+}
+
+#admin-section button {
+    width: 48%;
+    margin-right: 4%;
+    background-color: #4b6e81;
+    padding: 14px;
+    font-size: 18px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+#admin-section button:last-child {
+    margin-right: 0;
+    background-color: #7a9b8b;
+}
+
+#admin-section button:hover {
+    background-color: #3e4a59; /* Efeito de cor ao passar o mouse */
+}
+
+#admin-section .message {
+    margin-top: 20px;
+    text-align: center;
+    padding: 12px;
+    background-color: #d1e3e6;
+    color: #2d3b4c;
+    border-radius: 8px;
+    display: none; /* Esconde a mensagem inicialmente */
     font-weight: bold;
+}
+
+/* Estilo para a mensagem de erro */
+#admin-section .message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Estilo para a mensagem de sucesso */
+#admin-section .message.success {
+    background-color: #d4edda;
+    color: #155724;
 }
 
 /* Responsividade */
 @media (max-width: 600px) {
     .container {
         padding: 20px;
+        margin-top: 10vh;
     }
 
     h1 {
-        font-size: 20px;
+        font-size: 24px;
+    }
+
+    button {
+        font-size: 18px;
     }
 }

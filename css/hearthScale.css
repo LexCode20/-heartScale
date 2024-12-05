@@ -15,6 +15,7 @@ body {
     padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     background-color: black;
+    z-index: -2;
 }
 
 /* Header */
@@ -164,7 +165,36 @@ h2,p,li{
     border-radius: 8px;
     font-weight: 500;
 }
-
+main {
+    height: 100%;
+    color: white;
+    text-align: center;
+    padding: 40px;
+}
+/* Pseudo-element para a imagem de fundo com blur */
+main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../img/background-main.png');
+    background-size: cover;
+    background-position: center;
+    opacity: .3;
+    background-attachment: fixed;
+    z-index: -1; /* Coloca a imagem atrás de todo o conteúdo */
+}
+main h1 {
+    position: relative;
+    display: flex;
+    top: 30vh; /* Move o h1 para baixo em 50% da altura da viewport */
+    left: 4vh;
+    color: white;
+    font-size: 1.2em; /* Ajuste conforme necessário */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
 /* Seção de Apresentação com Imagem de Fundo */
 #apresentacao {
     position: relative;
@@ -179,109 +209,27 @@ h2,p,li{
     align-items: center;
     margin-left: 100vh;
 }
-/*main{
-    background-color:linear-gradient(to right, #010011, #07006f);;
-    height:100vh;
-    background-image: url(../img/background-main.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    filter: blur(10px);
-}*/
-main {
-    height: 100%;
-    color: white;
-    text-align: center;
-    padding: 40px;
-}
-
-/* Pseudo-element para a imagem de fundo com blur */
-main::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('../img/background-main.png');
-    background-size: cover;
-    background-position: center;
-    filter: blur(8px);
-    z-index: -1; /* Coloca a imagem atrás de todo o conteúdo */
-}
-
-main h1 {
-    position: relative;
-    top: 38vh; /* Move o h1 para baixo em 50% da altura da viewport */
-    margin-left: 26vh;
-    color: white;
-    font-size: 1.2em; /* Ajuste conforme necessário */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-}
-#Download{
-    color: black;
-    font-size: 1.6rem;
-    text-decoration: none;
-    font-weight: bold;
-}
-#Download:hover{
-    color: #777;
-    transition: .3s;
-}
-.box{
-    position: relative;
-    top: 40vh;
-    margin-left: 20vh;
-    text-align: center;
-    align-items: center;
-    padding: .5vh;
-    width: 50vh;
-    background-color: #F7FF19;
-    border-radius: 10px;
-}
-
 #apresentacao h1 {
     font-size: 3em;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
-
 section {
     padding: 50px 20px;
     margin: 20px;
     border-radius: 8px;
 }
-
-#como-jogar .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: rgb(23, 23, 23);
-    border-radius: 10px;
-}
-#como-jogar .container h2{
-    text-align: center;
-    margin: 10px 0px 10px 0px;
-    font-weight: 900;
-    font-size: 2.9rem;
-}
 #como-jogar .carousel-inner{
     margin-bottom: 20px;
-}
-.container p{
-    text-align: center;
-    margin-bottom: 20px;
-    font-weight: 900;
 }
 img.img-jogo {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
 }
-
 ul {
     list-style-type: disc;
     padding-left: 20px;
 }
-
 #cta {
     text-align: center;
 }
@@ -292,23 +240,87 @@ ul {
     color: #777;
     transition: .3s;
 }
-
-.btn {
+/* Estilo para botões */
+button, .btn, #Download {
     padding: 15px 25px;
     background-color: #F7FF19;
     color: black;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 18px;
+    font-weight: bold;
+    border: 2px solid #F7FF19;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
+button:hover, .btn:hover, #Download:hover {
+    background-color: black;
+    color: #F7FF19;
+    border: 2px solid #F7FF19;
+    transform: scale(1.05);
+}
+
+
+/* Centralização de textos */
+main h1, #como-jogar .container h2, #cta h2, #historia h2, #historia p {
+    text-align: center;
+}
+
+/* Ajustes de margem e espaçamento */
+#como-jogar .container, #cta, #historia {
+    margin: 0 auto;
+    max-width: 900px;
+    padding: 20px;
+}
+
+/* Seção "Como Jogar" */
+#como-jogar .container p {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+/* Seção "História" */
+#historia .container {
+    background-color: var(--AzulEscuroDaMontanha);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+#historia p {
+    color: var(--CinzaClaroDasNuvens);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* Botão na seção de ação */
+#cta a {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
+
+/* Botão na seção de apresentação */
+.box {
+    position: relative;
+    display: flex;
+    text-align: center;
+    margin: 0 auto;
+    top: 33vh;
+    left: 5vh;
+    z-index: 2;
+}
 footer {
     text-align: center;
     padding: 20px;
     background-color: #333;
     color: white;
 }
-/* Estilos do Lightbox */
 /* Estilos do Lightbox */
 .lightbox {
     position: fixed;
@@ -326,13 +338,11 @@ footer {
     transition: opacity 0.3s ease, transform 0.3s ease;
     transform: translateY(-100%); /* Começa acima da tela */
 }
-
 .lightbox.show {
     opacity: 1; /* Torna visível */
     pointer-events: auto; /* Ativa a interação */
     transform: translateY(0); /* Move para a posição normal */
 }
-
 .lightbox-content {
     background-color: white;
     padding: 30px;
@@ -343,7 +353,6 @@ footer {
     text-align: center;
     animation: slideDown 0.5s ease-out;
 }
-
 @keyframes slideDown {
     0% {
         transform: translateY(-50px);
@@ -354,23 +363,19 @@ footer {
         opacity: 1;
     }
 }
-
 .lightbox-content h2 {
     margin-bottom: 20px;
     color: black;
 }
-
 .form-group {
     margin-bottom: 15px;
     text-align: left;
 }
-
 .form-group label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
 }
-
 .form-group input {
     width: 95%;
     padding: 10px;
@@ -378,7 +383,6 @@ footer {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-
 .close-btn {
     position: absolute;
     top: 10px;
@@ -388,11 +392,10 @@ footer {
     cursor: pointer;
     color: #333;
 }
-
 .close-btn:hover {
     color: red;
 }
-/* Botão de Login */
+
 /* Lightbox - Container para os botões lado a lado */
 .buttons-container {
     display: flex;
@@ -444,7 +447,7 @@ footer {
 }
 #carousel-container {
     position: relative;
-    max-width: 70%; /* Alinha com o restante do layout */
+    max-width: 100%; /* Alinha com o restante do layout */
     margin: auto;
     overflow: hidden;
     border-radius: 8px;
@@ -468,7 +471,6 @@ footer {
 .carousel-btn {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
@@ -552,7 +554,6 @@ footer {
 footer {
     background-color: #111;
     color: #fff;
-    padding: 20px;
     text-align: center;
 }
 
@@ -562,10 +563,6 @@ footer {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-}
-
-footer img.logo {
-    height: 8vh;
 }
 
 .social-icons {

@@ -1,3 +1,4 @@
 no terminal digite:
-python app.py
 pip install flask-cors
+pip install flask flask-cors sqlalchemy moviepy
+python app.py
