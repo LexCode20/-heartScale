@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from moviepy.video.io.VideoFileClip import VideoFileClip
 from sqlalchemy import create_engine, Column, Integer, String, Float, asc
 from sqlalchemy.ext.declarative import declarative_base
@@ -37,6 +37,11 @@ Base.metadata.create_all(engine)
 # Pasta de uploads
 UPLOAD_FOLDER = 'uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
+# Rota para servir vídeos
+@app.route('/uploads/<path:filename>', methods=['GET'])
+def serve_video(filename):
+    return send_from_directory(UPLOAD_FOLDER, filename)
 
 # Endpoint de Envio de Vídeo
 @app.route('/upload', methods=['POST'])
@@ -77,7 +82,7 @@ def ranking():
         return jsonify([{
             'name': p.name,
             'time': format_time(p.time),
-            'video': p.video_path
+            'video': f"http://127.0.0.1:5000/uploads/{os.path.basename(p.video_path)}"
         } for p in players])
     except Exception as e:
         return jsonify({'error': str(e)}), 500

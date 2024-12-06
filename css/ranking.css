@@ -58,6 +58,23 @@ h1 {
 #rankingTable td {
     background-color: rgba(250, 251, 252, 0.192); /*Linhas alternadas de fundo mais claro */
 }
+#rankingTable td a {
+    display: inline-block; /* Deixa o link como um botão */
+    padding: 10px 15px; /* Espaçamento interno para parecer um botão */
+    color: #fff; /* Cor do texto */
+    background-color: #4b6e81; /* Cor do botão */
+    text-decoration: none; /* Remove sublinhado */
+    border-radius: 5px; /* Bordas arredondadas */
+    transition: all 0.3s ease; /* Suaviza as alterações de cor e tamanho */
+    font-weight: bold; /* Deixa o texto mais destacado */
+    font-size: 14px;
+}
+
+#rankingTable td a:hover {
+    background-color: #3e4a59; /* Cor ao passar o mouse */
+    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra ao botão */
+}
 
 /* Botões principais */
 button {
